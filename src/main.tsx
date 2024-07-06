@@ -16,9 +16,6 @@ const GlobalStyles = createGlobalStyle`
     background-color: black;
     -ms-overflow-style: none;
   }
-  body {
-    -ms-overflow-style: none;
-  }// ms scrollbar hidden.
   a {
     text-decoration:none;
     color:inherit;
