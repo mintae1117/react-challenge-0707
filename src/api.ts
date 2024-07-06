@@ -6,12 +6,20 @@ export interface ICharacters {
     imageUrl: string;
 }
 
+export interface ICharactersDetail{
+    id: number;
+    films: [];
+    name: string;
+    imageUrl: string;
+    sourceUrl: string;
+}
+
 export async function fetchCharacters(){
     const response = await fetch(`${BASE_PATH}`);
     return await response.json();
 }
 
-export async function fetchCharactersDetail(id : string){
+export async function fetchCharactersDetail(id : number){
     const response = await fetch(`${BASE_PATH}/${id}`);
     return await response.json();
 }

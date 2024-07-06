@@ -2,7 +2,6 @@ import { useQuery } from "react-query";
 import { fetchCharacters, ICharacters } from "../api"
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-//import { useState } from "react";
 
 const Loader = styled.div`
   height: 20vh;
@@ -13,7 +12,6 @@ const Loader = styled.div`
 
 export default function Home (){
     const { data: charactersData, isLoading: charactersLoading } = useQuery<ICharacters[]>("allCharacters", fetchCharacters);
-    //const [tmp, setTmp] = useState([]);
 
     return(
         <div>
@@ -29,7 +27,7 @@ export default function Home (){
                         </li>
                     ))}
                 </ul>
-                )}
+            )}
         </div>
     );
 }
