@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import { createGlobalStyle } from 'styled-components'
 import reset from 'styled-reset';
+import { QueryClient, QueryClientProvider } from 'react-query'
 
 const GlobalStyles = createGlobalStyle`
   ${reset};
@@ -22,9 +23,13 @@ const GlobalStyles = createGlobalStyle`
   }
 `;
 
+const client = new QueryClient();
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
+    <QueryClientProvider client={client}>
     <GlobalStyles />
     <App />
+    </QueryClientProvider>
   </React.StrictMode>,
 )
