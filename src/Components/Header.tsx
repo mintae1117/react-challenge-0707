@@ -7,13 +7,33 @@ const HeaderWrapper = styled.div`
     gap: 100px;
     align-items: center;
     justify-content: center;
-    font-size: 20px;
+    font-size: 22px;
     height: 120px;
     position: sticky;
     top: 0;
     background-color: black;
     z-index: 10;
     margin-top: 20px;
+`;
+
+const ReadmeLink = styled.div`
+    position: absolute;
+    right: 120px;
+    text-align: center;
+    @media (max-width: 710px) {
+        right: 20px;
+        font-size: 15px;
+    }
+`;
+
+const HomeLink = styled.div`
+    position: absolute;
+    left: 120px;
+    text-align: center;
+    @media (max-width: 710px) {
+        left: 20px;
+        font-size: 15px;
+    }
 `;
 
 export default function Header(){
@@ -23,12 +43,12 @@ export default function Header(){
             <div>
             <img style={{width:150}} src={'/disney-logo.png'} />
             </div>
-            <div style={{position:"absolute", right:120, textAlign:"center"}}>
+            <ReadmeLink>
                 <Link to="https://github.com/mintae1117/react-challenge-0707">Look Github's<br></br>README!</Link>
-            </div>
-            <div style={{position:"absolute", left:120, textAlign:"center"}}>
+            </ReadmeLink>
+            <HomeLink>
                 <Link to="/">Return to the<br></br>Home screen!</Link>
-            </div>
+            </HomeLink>
         </HeaderWrapper>
         <Outlet />
         </>
