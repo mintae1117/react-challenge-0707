@@ -21,7 +21,7 @@ export default function Header(){
         <>
         <HeaderWrapper>
             <div>
-            <img style={{width:150}} src={"/public/disney-logo.png"} />
+            <img style={{width:150}} src={"../public/disney-logo.png"} />
             </div>
             <div style={{position:"absolute", right:120, textAlign:"center"}}>
                 <Link to="https://github.com/mintae1117/react-challenge-0707">Look Github's<br></br>README!</Link>

@@ -32,7 +32,7 @@ export default function Detail(){
                         <div style={{backgroundColor:"white"}}>
                             { detailData?.imageUrl ? 
                             <img style={{width:350, margin:20}} src={detailData?.imageUrl}/> :
-                            <img src="/public/no-image.png" style={{width:300, margin:20}} />
+                            <img src={"../public/no-image.png"} style={{width:300, margin:20}} />
                             }
                         </div>
                     </Link>
