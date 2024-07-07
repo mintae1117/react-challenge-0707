@@ -12,7 +12,7 @@ const Loader = styled.div`
   align-items: center;
 `;
 
-const defaultOptions = {
+export const defaultOptions = {
 	reverse:        false,  // reverse the tilt direction
 	max:            35,     // max tilt rotation (degrees)
 	perspective:    1000,   // Transform perspective, the lower the more extreme the tilt gets.
@@ -55,12 +55,15 @@ export default function Home (){
                 <ul style={{display:"flex", flexWrap:"wrap", gap:100, alignItems:"center", justifyContent:"center", paddingTop:50}}>
                     {charactersData?.slice(0, 50 * page).map((characters) => (
                         <Link to={`/character/${characters.id}`}>
-                            <Tilt options={defaultOptions} style={{ height: 400, width: 300, backgroundColor:"blue" }}>
-                                <li key={characters.id}>
-                                    {characters.imageUrl ? <img src={`${characters?.imageUrl}`} /> 
-                                    : <img src="/public/no-image.png" style={{width:300}} />}
-                                    <h3>{characters?.name}</h3>
-                                </li>
+                            <Tilt options={defaultOptions}>
+                                <div style={{backgroundColor:"tomato", height: 400, width: 300, borderRadius:10, backgroundImage:'url(/public/card.png)', backgroundSize:"cover", justifyContent:"center", alignItems:"center", display:"flex"}}>
+                                    <li key={characters.id} style={{textAlign:"center"}}>
+                                        <div style={{maxWidth:250}}>
+                                            {characters.imageUrl ? <img style={{width:200, height:200, objectFit:"cover"}} src={`${characters?.imageUrl}`} /> : <img src="/public/no-image.png" style={{width:200}} />}
+                                            <h3 style={{marginTop:20, fontSize:20}}>{characters?.name}</h3>
+                                        </div>
+                                    </li>
+                                </div>
                             </Tilt>
                         </Link>
                     ))}
