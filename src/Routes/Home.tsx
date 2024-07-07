@@ -3,6 +3,7 @@ import { fetchCharacters, ICharacters } from "../api"
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { Tilt } from "react-tilt";
+import { useEffect, useState } from "react";
 
 const Loader = styled.div`
   height: 20vh;
@@ -24,19 +25,40 @@ const defaultOptions = {
 }
 
 export default function Home (){
+    const [page, setPage] = useState(0);
+
     const { data: charactersData, isLoading: charactersLoading } = useQuery<ICharacters[]>("allCharacters", fetchCharacters);
+
+    const handleObserver = (entries: IntersectionObserverEntry[]) => {
+        const target = entries[0];
+        if (target.isIntersecting) {
+          setPage((prevPage) => prevPage + 1);
+        }
+    };
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(handleObserver, {
+          threshold: 0, //  Intersection Observer의 옵션, 0일 때는 교차점이 한 번만 발생해도 실행, 1은 모든 영역이 교차해야 콜백 함수가 실행.
+        });
+        // 최하단 요소를 관찰 대상으로 지정함
+        const observerTarget = document.getElementById("observer");
+        // 관찰 시작
+        if (observerTarget) {
+          observer.observe(observerTarget);
+        }
+      }, []);
 
     return(
         <div>
             {charactersLoading ? (<Loader>Loading...</Loader>) : (
                 <>
-                <h2>home!!!</h2>
-                <ul style={{display:"flex", flexWrap:"wrap", gap:100, alignItems:"center", justifyContent:"center"}}>
-                    {charactersData?.slice(0, 100).map((characters) => (
+                <ul style={{display:"flex", flexWrap:"wrap", gap:100, alignItems:"center", justifyContent:"center", paddingTop:50}}>
+                    {charactersData?.slice(0, 50 * page).map((characters) => (
                         <Link to={`/character/${characters.id}`}>
                             <Tilt options={defaultOptions} style={{ height: 400, width: 300, backgroundColor:"blue" }}>
                                 <li key={characters.id}>
-                                    <img src={`${characters?.imageUrl}`} />
+                                    {characters.imageUrl ? <img src={`${characters?.imageUrl}`} /> 
+                                    : <img src="/public/no-image.png" style={{width:300}} />}
                                     <h3>{characters?.name}</h3>
                                 </li>
                             </Tilt>
@@ -45,6 +67,7 @@ export default function Home (){
                 </ul>
                 </>
             )}
+            <div id="observer" style={{ height: "50px" }}></div>
         </div>
     );
 }

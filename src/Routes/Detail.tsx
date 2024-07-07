@@ -26,7 +26,7 @@ export default function Detail(){
             { detailLoading ? (<Loader>Loading...</Loader>) : (
                 <>
                 <h2>{detailData?.name}</h2>
-                <img src={detailData?.imageUrl}/>
+                {detailData?.imageUrl ? <img src={detailData?.imageUrl}/> : <img src="/public/no-image.png" style={{width:300}} />}
                 {detailData?.films ? detailData?.films.map(films => (
                     <h3>{films}</h3>
                 )) : null}

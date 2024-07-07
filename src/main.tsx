@@ -7,8 +7,15 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 
 const GlobalStyles = createGlobalStyle`
   ${reset};
+  @font-face {
+    font-family: 'EF_jejudoldam';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_jejudoldam.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
   * {
     box-sizing: border-box;
+    font-family: "EF_jejudoldam";
   }
   body {
     font-weight: 400;
@@ -16,10 +23,12 @@ const GlobalStyles = createGlobalStyle`
     line-height: 1.2;
     background-color: black;
     -ms-overflow-style: none;
+    font-family: "EF_jejudoldam";
   }
   a {
     text-decoration:none;
     color:inherit;
+    font-family: "EF_jejudoldam";
   }
 `;
 
