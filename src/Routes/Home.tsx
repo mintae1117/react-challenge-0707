@@ -12,6 +12,18 @@ const Loader = styled.div`
   align-items: center;
 `;
 
+const CardWrapper = styled.div`
+    background-color: tomato;
+    height: 400px;
+    width: 300px;
+    border-radius: 10px;
+    background-image: url(./public/card.png);
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+`;
+
 export const defaultOptions = {
 	reverse:        false,  // reverse the tilt direction
 	max:            35,     // max tilt rotation (degrees)
@@ -56,14 +68,17 @@ export default function Home (){
                     {charactersData?.slice(0, 50 * page).map((characters) => (
                         <Link to={`/character/${characters.id}`}>
                             <Tilt options={defaultOptions}>
-                                <div style={{backgroundColor:"tomato", height: 400, width: 300, borderRadius:10, backgroundImage:'url(/public/card.png)', backgroundSize:"cover", justifyContent:"center", alignItems:"center", display:"flex"}}>
+                                <CardWrapper>
                                     <li key={characters.id} style={{textAlign:"center"}}>
                                         <div style={{maxWidth:250}}>
-                                            {characters.imageUrl ? <img style={{width:200, height:220, objectFit:"cover"}} src={`${characters?.imageUrl}`} /> : <img src="/public/no-image.png" style={{width:200}} />}
+                                            { characters.imageUrl ?
+                                            <img style={{width:200, height:220, objectFit:"cover"}} src={`${characters?.imageUrl}`} /> :
+                                            <img src="/public/no-image.png" style={{width:200}} />
+                                            }
                                             <h3 style={{marginTop:20, fontSize:20}}>{characters?.name}</h3>
                                         </div>
                                     </li>
-                                </div>
+                                </CardWrapper>
                             </Tilt>
                         </Link>
                     ))}
