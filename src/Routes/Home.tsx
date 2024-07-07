@@ -59,7 +59,7 @@ export default function Home (){
                                 <div style={{backgroundColor:"tomato", height: 400, width: 300, borderRadius:10, backgroundImage:'url(/public/card.png)', backgroundSize:"cover", justifyContent:"center", alignItems:"center", display:"flex"}}>
                                     <li key={characters.id} style={{textAlign:"center"}}>
                                         <div style={{maxWidth:250}}>
-                                            {characters.imageUrl ? <img style={{width:200, height:200, objectFit:"cover"}} src={`${characters?.imageUrl}`} /> : <img src="/public/no-image.png" style={{width:200}} />}
+                                            {characters.imageUrl ? <img style={{width:200, height:220, objectFit:"cover"}} src={`${characters?.imageUrl}`} /> : <img src="/public/no-image.png" style={{width:200}} />}
                                             <h3 style={{marginTop:20, fontSize:20}}>{characters?.name}</h3>
                                         </div>
                                     </li>
