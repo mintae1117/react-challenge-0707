@@ -1,6 +1,6 @@
-# Disney Characters Display Challenge!
+# 🙂 Disney Characters Display Challenge!
 
-## 사용한 기능들 및 설명
+## 💻 사용한 기능들 및 설명
 
 ### 1. 무한 스크롤 (100개 단위)
 ### 2. 3D Card (react-tilt)
