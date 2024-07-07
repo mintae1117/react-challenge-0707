@@ -73,7 +73,7 @@ export default function Home (){
                                         <div style={{maxWidth:250}}>
                                             { characters.imageUrl ?
                                             <img style={{width:200, height:220, objectFit:"cover"}} src={`${characters?.imageUrl}`} /> :
-                                            <img src="/public/no-image.png" style={{width:200}} />
+                                            <img src="../public/no-image.png" style={{width:200}} />
                                             }
                                             <h3 style={{marginTop:20, fontSize:20}}>{characters?.name}</h3>
                                         </div>
