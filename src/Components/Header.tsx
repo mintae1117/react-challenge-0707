@@ -28,7 +28,7 @@ export default function Header(){
                 <Link to="/">Return to the<br></br>Home screen!</Link>
             </div>
             <div style={{position:"absolute", left:120, textAlign:"center"}}>
-                <Link to="https://github.com/mintae1117">Look Github's<br></br>README!</Link>
+                <Link to="https://github.com/mintae1117/react-challenge-0707">Look Github's<br></br>README!</Link>
             </div>
         </HeaderWrapper>
         <Outlet />
