@@ -17,7 +17,7 @@ const CardWrapper = styled.div`
     height: 400px;
     width: 300px;
     border-radius: 10px;
-    background-image: url(./public/card.png);
+    background-image: url("./public/card.png");
     background-size: cover;
     justify-content: center;
     align-items: center;
@@ -73,7 +73,7 @@ export default function Home (){
                                         <div style={{maxWidth:250}}>
                                             { characters.imageUrl ?
                                             <img style={{width:200, height:220, objectFit:"cover"}} src={`${characters?.imageUrl}`} /> :
-                                            <img src="../public/no-image.png" style={{width:200}} />
+                                            <img src={"./public/no-image.png"} alt="" style={{width:200}} />
                                             }
                                             <h3 style={{marginTop:20, fontSize:20}}>{characters?.name}</h3>
                                         </div>
