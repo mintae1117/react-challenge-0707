@@ -8,12 +8,11 @@ const HeaderWrapper = styled.div`
     align-items: center;
     justify-content: center;
     font-size: 22px;
-    height: 120px;
+    height: 110px;
     position: sticky;
     top: 0;
-    background-color: black;
+    background-color: rgb(65,171,246, 0.7);
     z-index: 10;
-    margin-top: 20px;
 `;
 
 const ReadmeLink = styled.div`
@@ -24,6 +23,9 @@ const ReadmeLink = styled.div`
         right: 20px;
         font-size: 15px;
     }
+    &:hover{
+        color: #0088ff;
+    }
 `;
 
 const HomeLink = styled.div`
@@ -33,6 +35,9 @@ const HomeLink = styled.div`
     @media (max-width: 710px) {
         left: 20px;
         font-size: 15px;
+    }
+    &:hover{
+        color: #0088ff;
     }
 `;
 

@@ -5,6 +5,22 @@ import { Link } from "react-router-dom";
 import { Tilt } from "react-tilt";
 import { useEffect, useState } from "react";
 
+const Wrapper = styled.div`
+    background-image: url(/disney.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+`;
+
+const HomeWrapper = styled.ul`
+    display: flex;
+    flex-wrap: wrap;
+    gap: 100px;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+    margin-inline: 30px;
+`;
+
 const Loader = styled.div`
   height: 20vh;
   display: flex;
@@ -13,7 +29,8 @@ const Loader = styled.div`
 `;
 
 const CardWrapper = styled.div`
-    background-color: tomato;
+    //background-color: #41abf6;
+    background-color: rgb(65,171,246, 0.6);
     height: 400px;
     width: 300px;
     border-radius: 10px;
@@ -22,6 +39,9 @@ const CardWrapper = styled.div`
     justify-content: center;
     align-items: center;
     display: flex;
+    &:hover{
+        background-color: #41abf6;
+    }
 `;
 
 export const defaultOptions = {
@@ -61,10 +81,10 @@ export default function Home (){
       }, []);
 
     return(
-        <div>
+        <Wrapper>
             {charactersLoading ? (<Loader>Loading...</Loader>) : (
                 <>
-                <ul style={{display:"flex", flexWrap:"wrap", gap:100, alignItems:"center", justifyContent:"center", paddingTop:50}}>
+                <HomeWrapper>
                     {charactersData?.slice(0, 50 * page).map((characters) => (
                         <Link to={`/character/${characters.id}`}>
                             <Tilt options={defaultOptions}>
@@ -82,10 +102,10 @@ export default function Home (){
                             </Tilt>
                         </Link>
                     ))}
-                </ul>
+                </HomeWrapper>
                 </>
             )}
             <div id="observer" style={{ height: "50px" }}></div>
-        </div>
+        </Wrapper>
     );
 }

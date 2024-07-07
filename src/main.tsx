@@ -27,7 +27,7 @@ const GlobalStyles = createGlobalStyle`
     font-weight: 400;
     color: white;
     line-height: 1.2;
-    background-color: black;
+    background-color: #41abf6;
     -ms-overflow-style: none;
     font-family: "PyeongChangPeace-Bold";
   }
